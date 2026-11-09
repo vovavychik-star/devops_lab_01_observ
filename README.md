@@ -104,7 +104,6 @@ monitoring-lab/
 
 ### 3.3. Инициализация Git и публикация на GitHub
 
-Репозиторий инициализируется локально:
 
 ```bash
 git init
@@ -112,8 +111,6 @@ git status
 git add .
 git commit -m "Initial monitoring stack"
 ```
-
-Дальше изменения лучше фиксировать логическими частями, а не одним большим коммитом в самом конце:
 
 ```bash
 git add app/
@@ -124,22 +121,19 @@ git add loki/ promtail/ alertmanager/
 git commit -m "Configure logs and alerting"
 ```
 
-После создания пустого репозитория на GitHub добавляется remote (URL необходимо заменить на адрес своего репозитория):
 
 ```bash
-git remote add origin https://github.com/<username>/<repository>.git
+git remote add origin 
 git branch -M main
 git push -u origin main
 ```
-
-Если Git просит указать автора коммитов, настройки можно задать для текущего репозитория:
 
 ```bash
 git config user.name "Your Name"
 git config user.email "your-email@example.com"
 ```
 
-Файл `.env` с паролями и токенами не следует коммитить. Его нужно добавить в `.gitignore`, а в репозитории при необходимости оставить `.env.example` без секретных значений.
+Файл `.env` с паролями нужно добавить в `.gitignore`.
 
 ## 4. Контейнеризация FastAPI
 
@@ -568,4 +562,4 @@ git add .
 git commit -m "Update monitoring lab documentation"
 ```
 
-Перед отправкой проекта на GitHub нужно проверить, что в репозитории есть исходники, конфигурации и README, но нет секретов, локального `.env`, временных файлов и ненужных данных контейнеров.
+
